@@ -1,0 +1,64 @@
+ALGORITMO: Hangman
+------------------------------
+
+VARIANTI E TIPI:
+  - word_list: array
+
+COSTANTI:
+
+INIZIO:
+  Funzione Nascondi_lettere(x, y, z): array
+  		 Per p in x
+  		 Se p in y
+  		 	z <--- P
+  		 Altrimenti
+  		 	z <--- "_"
+		 fine Se
+  		 return z
+  CICLO:
+  #Assegnazione
+  Variabile_parola <--- Seleziona casualmente una parola all'interno di word_list
+  Variabile_lettera <--- ""
+  Variabile_parola_nascosta <--- []
+  Variabile_risposta_utente <--- []
+  Variabile_vite_tot <--- 6
+  Variabile_vite_perse <--- 0
+  Variabile_punteggio <--- 0
+
+  INIZIO:
+  Ciclo:
+  Variabile_vita = Variabile_vite_tot - Variabile_vite_perse
+  scrivi("Indovina una lettera della parola, Hai", Variabile_vita, "vita")
+  leggi(lettera)
+  Se lettera in parola
+	Variabile_risposta_utente <--- lettera
+	Se Variabile_parola_nascosta == Nascondi_lettere(Variabile_parola, Variabile_risposta_utente, Variabile_parola_nascosta)
+		scrivi("lettera già indovinata", Variabile_parola_nascosta)
+	Altrimenti
+		scrivi(Variabile_parola_nascosta")
+		finché ci sono ancora Variabile_parola_nascosta != Variabile_parola
+			ricomincia il ciclo
+		Altrimenti
+			scrivi("Hai vinto!)
+			Variabile_punteggio <--- Variabile_punteggio +1
+			scrivi("Continuare/Uscire dal gioco")
+			Variabile_uscire_o_meno <---leggi("Variabile_uscire_o_meno")
+			Se continuare
+				break
+			Altrimenti
+				Esci
+				
+	fine Se
+  Altrimenti
+	scrivi("Sbagliato!!")
+	Variabile_vite_perse <--- Variabile_vite_perse +1
+	Se Varibile_vita_perse == 6
+		scrivi("Hai perso!!")
+		Esci
+	Altrimenti
+		scrivi("Riprova!")
+  fine Se
+fine Ciclo
+FINE CICLO
+
+FINE
