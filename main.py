@@ -107,12 +107,33 @@ def get_valid_input(prompt, valid_options):
             return user_input
         else:
             print("Invalid input. Please try again.")
+            time.sleep(1.5)
+            clear_screen()
 
 def main():
     """
-    Main function of the game. This function controls the flow of the game and
-    keeps track of the user's score. The user is asked if they want to play again
-    after each game and the score is displayed when the user decides to quit.
+    The main function of the program. It contains the main game loop,
+    and handles user input to play again or quit the game.
+
+    The function will randomly select a word from the word_list, and
+    then play the game using the play function. If the user wins, it will
+    add to the score and print the new score. If the user loses, it
+    will print the final score and end the game.
+
+    The function will then ask the user if they want to play again, and
+    if the user inputs "n" or "no", it will end the game and print the
+    final score. If the user inputs "y" or "yes", it will continue the
+    game loop.
+
+    Parameters
+    ----------
+
+    None
+
+    Returns
+    -------
+
+    None
     """
     keep_going = True
     score = 0
@@ -124,15 +145,21 @@ def main():
             clear_screen()
             print(f"You got it!!\n The word was:{secret_word}")
             score += 1
+            print(f"Score: {score}")
+            time.sleep(1.5)
+            clear_screen()
         else:
             clear_screen()
             print(stages[0])
             print(f"You lost!\nThe word you had to guess was: {secret_word}")
-            
+            print(f"Score: {score}")
+            time.sleep(1.5)
+            clear_screen()
+  
         play_again = get_valid_input("play again?(y/n): ", ["y", "yes", "n", "no"])
         if play_again.startswith("n"):
             clear_screen()
-            print(f"Score= {score}\nGoodbye!!")
+            print(f"Final score: {score}\nGoodbye!!")
             keep_going = False
 
 if __name__ == "__main__":
