@@ -118,7 +118,7 @@ def main():
     score = 0
 
     while keep_going:
-        secret_word = random.sample(word_list, 1)[0]
+        secret_word = random.choice(word_list)
 
         if play(secret_word):
             clear_screen()
