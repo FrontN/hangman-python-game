@@ -32,7 +32,9 @@ Game Over: Il gioco termina quando la parola è completa (Vittoria) o quando i t
 Project Structure 📁
 Plaintext
 hangman-project/
-├── main.py  
+├── main.py
+├── hangmanworkflow.drawio.pdf
+├── algoritmo_hangman.txt
 ├── hangman_image.py           # Logica principale e Entry Point
 ├── hangman_art.py             # Asset grafici (Logo e Stages ASCII)
 ├── hangman_words_real.py      # Database delle parole segrete
